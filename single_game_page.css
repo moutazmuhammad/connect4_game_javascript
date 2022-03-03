@@ -1,0 +1,51 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+
+.box{
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.gameframe{
+    background-color: darkorange;
+    border-radius: 15px;
+    margin: auto;
+    width: 450px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.circle{
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.circle:hover{
+    background-color: rgb(185, 178, 178);
+}
+
+.button{
+    cursor: pointer;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    background-color:darkred;
+    color: white;
+    width: 150px;
+    height: 30px;
+}
+
+.button:hover{
+    background-color: darkgoldenrod;
+}
