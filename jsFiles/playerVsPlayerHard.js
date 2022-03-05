@@ -5,59 +5,112 @@ let playerTwoScore = 0
 let usernameNum = 1
 let startGame = 0
 
+diagonalsWinPositios=[
+    [7, 15, 23, 31, 39],
+    [0, 8, 10, 24, 32],
+    [8, 10, 24, 32, 40],
+    [1, 9, 17, 25, 33],
+    [9, 17, 25, 33, 41],
+    [2, 10, 18, 26, 34],
+    [4, 10, 16, 22, 28],
+    [5, 11, 17, 23, 29],
+    [11, 17, 23, 29, 23],
+    [6, 12, 18, 24, 30],
+    [12, 18, 24, 30, 36],
+    [13, 19, 25, 31, 37],
+]
 
 function checkPlayerOneWin(){
-    for (let pOne=0 ; pOne<38 ; pOne++){
+    for (let pOne=0 ; pOne<38 ; pOne++){ // check circles in rows
         if (circles[pOne].classList.contains("playerOne")   &&
             circles[pOne+1].classList.contains("playerOne") &&
             circles[pOne+2].classList.contains("playerOne") &&
             circles[pOne+3].classList.contains("playerOne") &&
             circles[pOne+4].classList.contains("playerOne")) 
-            {
-                console.log("win")
-                alert("Payer One Win!!!")
-            }
+        {
+            playerOneScore++;
+            alert("Payer One Win!!!")
+        }
     }
-    for (let pOne2=0 ; pOne2<14 ; pOne2++){
+    for (let pOne2=0 ; pOne2<14 ; pOne2++){ // check circles in columns
         if (circles[pOne2].classList.contains("playerOne") &&
             circles[pOne2+7].classList.contains("playerOne") &&
             circles[pOne2+14].classList.contains("playerOne") &&
             circles[pOne2+21].classList.contains("playerOne") &&
             circles[pOne2+28].classList.contains("playerOne"))
-            {
-                console.log("win")
-                alert("Payer One Win!!!")
-            }
+        {
+            playerOneScore++;
+            alert("Payer One Win!!!")
+        }
+    }
+
+    for(let dOne= 0; dOne < diagonalsWinPositios.length ; dOne++){ // check circles in diagonals
+        const circle1 = circles[diagonalsWinPositios[dOne][0]]
+        const circle2 = circles[diagonalsWinPositios[dOne][1]]
+        const circle3 = circles[diagonalsWinPositios[dOne][2]]
+        const circle4 = circles[diagonalsWinPositios[dOne][3]]
+        const circle5 = circles[diagonalsWinPositios[dOne][4]]
+
+        if (circle1.classList.contains("playerOne")   &&
+            circle2.classList.contains("playerOne") &&
+            circle3.classList.contains("playerOne") &&
+            circle4.classList.contains("playerOne") &&
+            circle5.classList.contains("playerOne")) 
+        {
+            playerOneScore++;
+            alert("Payer One Win!!!")
+        }
     }
 }
 
 function checkPlayerTwoWin(){
-    for (let pTwo=0 ; pTwo<38 ; pTwo++){
+    for (let pTwo=0 ; pTwo<38 ; pTwo++){ // check circles in rows
         if (circles[pTwo].classList.contains("playerTwo")   &&
             circles[pTwo+1].classList.contains("playerTwo") &&
             circles[pTwo+2].classList.contains("playerTwo") &&
             circles[pTwo+3].classList.contains("playerTwo") &&
             circles[pTwo+4].classList.contains("playerTwo")) 
             {
-                console.log("win")
+                playerTwoScore++;
                 alert("Payer Two Win!!!")
             }
     }
-    for (let pTwo2=0 ; pTwo2<14 ; pTwo2++){
+    for (let pTwo2=0 ; pTwo2<14 ; pTwo2++){ // check circles in columns
         if (circles[pTwo2].classList.contains("playerTwo") &&
             circles[pTwo2+7].classList.contains("playerTwo") &&
             circles[pTwo2+14].classList.contains("playerTwo") &&
             circles[pTwo2+21].classList.contains("playerTwo") &&
             circles[pTwo2+28].classList.contains("playerTwo"))
             {
-                console.log("win")
+                playerTwoScore++;
                 alert("Payer Two Win!!!")
             }
     }
+
+    for(let dTwo= 0; dTwo < diagonalsWinPositios.length ; dTwo++){ // check circles in diagonals
+        const circle1 = circles[diagonalsWinPositios[dTwo][0]]
+        const circle2 = circles[diagonalsWinPositios[dTwo][1]]
+        const circle3 = circles[diagonalsWinPositios[dTwo][2]]
+        const circle4 = circles[diagonalsWinPositios[dTwo][3]]
+        const circle5 = circles[diagonalsWinPositios[dTwo][4]]
+
+        if (circle1.classList.contains("playerTwo")   &&
+            circle2.classList.contains("playerTwo") &&
+            circle3.classList.contains("playerTwo") &&
+            circle4.classList.contains("playerTwo") &&
+            circle5.classList.contains("playerTwo")) 
+        {
+            playerTwoScore++;
+            alert("Payer Two Win!!!")
+        }
+    }
 }
 
+// This Loop prepares the player's turn and the empty places to play
 for (let i=0 ; i<circles.length ; i++){
+
     circles[i].onclick=()=>{
+
         if (circles[i].classList.contains("empty") && startGame === 1){
             if (usernameNum === 1){
                 circles[i].classList.add("playerOne");
@@ -80,6 +133,7 @@ for (let i=0 ; i<circles.length ; i++){
                     circles[i-7].classList.add("empty");
                 }
             }
+
         }
         checkPlayerOneWin();
         checkPlayerTwoWin();
