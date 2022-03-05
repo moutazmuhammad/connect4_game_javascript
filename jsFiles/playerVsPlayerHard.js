@@ -7,21 +7,23 @@ let startGame = 0
 
 
 function checkPlayerOneWin(){
-    for (let pOne=0 ; pOne<39 ; pOne++){
+    for (let pOne=0 ; pOne<38 ; pOne++){
         if (circles[pOne].classList.contains("playerOne")   &&
             circles[pOne+1].classList.contains("playerOne") &&
             circles[pOne+2].classList.contains("playerOne") &&
-            circles[pOne+3].classList.contains("playerOne")) 
+            circles[pOne+3].classList.contains("playerOne") &&
+            circles[pOne+4].classList.contains("playerOne")) 
             {
                 console.log("win")
                 alert("Payer One Win!!!")
             }
     }
-    for (let pOne2=0 ; pOne2<21 ; pOne2++){
+    for (let pOne2=0 ; pOne2<14 ; pOne2++){
         if (circles[pOne2].classList.contains("playerOne") &&
             circles[pOne2+7].classList.contains("playerOne") &&
             circles[pOne2+14].classList.contains("playerOne") &&
-            circles[pOne2+21].classList.contains("playerOne"))
+            circles[pOne2+21].classList.contains("playerOne") &&
+            circles[pOne2+28].classList.contains("playerOne"))
             {
                 console.log("win")
                 alert("Payer One Win!!!")
@@ -30,21 +32,23 @@ function checkPlayerOneWin(){
 }
 
 function checkPlayerTwoWin(){
-    for (let pTwo=0 ; pTwo<39 ; pTwo++){
+    for (let pTwo=0 ; pTwo<38 ; pTwo++){
         if (circles[pTwo].classList.contains("playerTwo")   &&
             circles[pTwo+1].classList.contains("playerTwo") &&
             circles[pTwo+2].classList.contains("playerTwo") &&
-            circles[pTwo+3].classList.contains("playerTwo")) 
+            circles[pTwo+3].classList.contains("playerTwo") &&
+            circles[pTwo+4].classList.contains("playerTwo")) 
             {
                 console.log("win")
                 alert("Payer Two Win!!!")
             }
     }
-    for (let pTwo2=0 ; pTwo2<21 ; pTwo2++){
+    for (let pTwo2=0 ; pTwo2<14 ; pTwo2++){
         if (circles[pTwo2].classList.contains("playerTwo") &&
             circles[pTwo2+7].classList.contains("playerTwo") &&
             circles[pTwo2+14].classList.contains("playerTwo") &&
-            circles[pTwo2+21].classList.contains("playerTwo"))
+            circles[pTwo2+21].classList.contains("playerTwo") &&
+            circles[pTwo2+28].classList.contains("playerTwo"))
             {
                 console.log("win")
                 alert("Payer Two Win!!!")
