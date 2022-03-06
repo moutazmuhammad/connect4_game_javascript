@@ -72,7 +72,8 @@ function playerMoves(e){
                 }
             }
             allCircles[emptyPosition].classList.add("circle-yellow");
-            allCircles[emptyPosition].removeEventListener("click", playerMoves)
+            allCircles[emptyPosition].removeEventListener("click", playerMoves);
+            printTurn("Computer");
             //Now we set the turn to be the computer's
             turn = "computer";
             //Check for winning
@@ -84,7 +85,6 @@ function playerMoves(e){
             //If no win, let the computer play its move
             setTimeout(() => {
                 computerMoves();
-                printTurn("Computer");
             }, 1000);        
         }  
 
@@ -120,12 +120,13 @@ function computerMoves(){
             }
         }
         allCircles[empty].classList.add("circle-red");
+        printTurn("Player");
         //Set some time out so that the final move appears before the win window pops up
         setTimeout(() => {
             checkForWinning("circle-red");
         }, 200);
         turn = "player";
-        printTurn("Player");
+       
     }
 }
 
