@@ -21,20 +21,50 @@ diagonalsWinPositios=[
 ]
 
 function checkPlayerOneWin(){
-    for (let pOne=0 ; pOne<38 ; pOne++){ // check circles in rows
+    for (let pOne=0 ; pOne<3 ; pOne++){ // check circles in rows
         if (circles[pOne].classList.contains("playerOne")   &&
             circles[pOne+1].classList.contains("playerOne") &&
             circles[pOne+2].classList.contains("playerOne") &&
             circles[pOne+3].classList.contains("playerOne") &&
-            circles[pOne+4].classList.contains("playerOne")) 
-        {
-            playerOneScore++;
-            alert("Payer One Win!!!")
-        }
+            circles[pOne+4].classList.contains("playerOne") 
+            ||
+            circles[pOne+7].classList.contains("playerOne")  &&
+            circles[pOne+8].classList.contains("playerOne")  &&
+            circles[pOne+9].classList.contains("playerOne")  &&
+            circles[pOne+10].classList.contains("playerOne") &&
+            circles[pOne+11].classList.contains("playerOne") 
+            ||
+            circles[pOne+14].classList.contains("playerOne") &&
+            circles[pOne+15].classList.contains("playerOne") &&
+            circles[pOne+16].classList.contains("playerOne") &&
+            circles[pOne+17].classList.contains("playerOne") &&
+            circles[pOne+18].classList.contains("playerOne") 
+            ||
+            circles[pOne+21].classList.contains("playerOne") &&
+            circles[pOne+22].classList.contains("playerOne") &&
+            circles[pOne+23].classList.contains("playerOne") &&
+            circles[pOne+24].classList.contains("playerOne") &&
+            circles[pOne+25].classList.contains("playerOne")
+            ||
+            circles[pOne+28].classList.contains("playerOne") &&
+            circles[pOne+29].classList.contains("playerOne") &&
+            circles[pOne+30].classList.contains("playerOne") &&
+            circles[pOne+31].classList.contains("playerOne") &&
+            circles[pOne+32].classList.contains("playerOne") 
+            ||
+            circles[pOne+35].classList.contains("playerOne") &&
+            circles[pOne+36].classList.contains("playerOne") &&
+            circles[pOne+37].classList.contains("playerOne") &&
+            circles[pOne+38].classList.contains("playerOne") &&
+            circles[pOne+39].classList.contains("playerOne")) 
+            {
+                playerOneScore++;
+                alert("Payer One Win!!!")
+            }
     }
     for (let pOne2=0 ; pOne2<14 ; pOne2++){ // check circles in columns
-        if (circles[pOne2].classList.contains("playerOne") &&
-            circles[pOne2+7].classList.contains("playerOne") &&
+        if (circles[pOne2].classList.contains("playerOne")    &&
+            circles[pOne2+7].classList.contains("playerOne")  &&
             circles[pOne2+14].classList.contains("playerOne") &&
             circles[pOne2+21].classList.contains("playerOne") &&
             circles[pOne2+28].classList.contains("playerOne"))
@@ -51,7 +81,7 @@ function checkPlayerOneWin(){
         const circle4 = circles[diagonalsWinPositios[dOne][3]]
         const circle5 = circles[diagonalsWinPositios[dOne][4]]
 
-        if (circle1.classList.contains("playerOne")   &&
+        if (circle1.classList.contains("playerOne") &&
             circle2.classList.contains("playerOne") &&
             circle3.classList.contains("playerOne") &&
             circle4.classList.contains("playerOne") &&
@@ -64,20 +94,50 @@ function checkPlayerOneWin(){
 }
 
 function checkPlayerTwoWin(){
-    for (let pTwo=0 ; pTwo<38 ; pTwo++){ // check circles in rows
+    for (let pTwo=0 ; pTwo<3 ; pTwo++){ // check circles in rows
         if (circles[pTwo].classList.contains("playerTwo")   &&
             circles[pTwo+1].classList.contains("playerTwo") &&
             circles[pTwo+2].classList.contains("playerTwo") &&
             circles[pTwo+3].classList.contains("playerTwo") &&
-            circles[pTwo+4].classList.contains("playerTwo")) 
+            circles[pTwo+4].classList.contains("playerTwo") 
+            ||
+            circles[pTwo+7].classList.contains("playerTwo")  &&
+            circles[pTwo+8].classList.contains("playerTwo")  &&
+            circles[pTwo+9].classList.contains("playerTwo")  &&
+            circles[pTwo+10].classList.contains("playerTwo") &&
+            circles[pTwo+11].classList.contains("playerTwo") 
+            ||
+            circles[pTwo+14].classList.contains("playerTwo") &&
+            circles[pTwo+15].classList.contains("playerTwo") &&
+            circles[pTwo+16].classList.contains("playerTwo") &&
+            circles[pTwo+17].classList.contains("playerTwo") &&
+            circles[pTwo+18].classList.contains("playerTwo") 
+            ||
+            circles[pTwo+21].classList.contains("playerTwo") &&
+            circles[pTwo+22].classList.contains("playerTwo") &&
+            circles[pTwo+23].classList.contains("playerTwo") &&
+            circles[pTwo+24].classList.contains("playerTwo") &&
+            circles[pTwo+25].classList.contains("playerTwo")
+            ||
+            circles[pTwo+28].classList.contains("playerTwo") &&
+            circles[pTwo+29].classList.contains("playerTwo") &&
+            circles[pTwo+30].classList.contains("playerTwo") &&
+            circles[pTwo+31].classList.contains("playerTwo") &&
+            circles[pTwo+32].classList.contains("playerTwo") 
+            ||
+            circles[pTwo+35].classList.contains("playerTwo") &&
+            circles[pTwo+36].classList.contains("playerTwo") &&
+            circles[pTwo+37].classList.contains("playerTwo") &&
+            circles[pTwo+38].classList.contains("playerTwo") &&
+            circles[pTwo+39].classList.contains("playerTwo")) 
             {
                 playerTwoScore++;
                 alert("Payer Two Win!!!")
             }
     }
     for (let pTwo2=0 ; pTwo2<14 ; pTwo2++){ // check circles in columns
-        if (circles[pTwo2].classList.contains("playerTwo") &&
-            circles[pTwo2+7].classList.contains("playerTwo") &&
+        if (circles[pTwo2].classList.contains("playerTwo")    &&
+            circles[pTwo2+7].classList.contains("playerTwo")  &&
             circles[pTwo2+14].classList.contains("playerTwo") &&
             circles[pTwo2+21].classList.contains("playerTwo") &&
             circles[pTwo2+28].classList.contains("playerTwo"))
@@ -94,7 +154,7 @@ function checkPlayerTwoWin(){
         const circle4 = circles[diagonalsWinPositios[dTwo][3]]
         const circle5 = circles[diagonalsWinPositios[dTwo][4]]
 
-        if (circle1.classList.contains("playerTwo")   &&
+        if (circle1.classList.contains("playerTwo") &&
             circle2.classList.contains("playerTwo") &&
             circle3.classList.contains("playerTwo") &&
             circle4.classList.contains("playerTwo") &&
