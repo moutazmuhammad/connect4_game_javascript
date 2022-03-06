@@ -15,9 +15,13 @@ gameFrame.addEventListener("click", (e)=>{
 })
 
 
-
 //Starting Game
 startBtn.addEventListener("click", (e)=>{
+    startGame();
+})
+
+//Starting Function
+function startGame(){
     gameStarted = true;
     turn = "player";
     //let player start playing
@@ -25,7 +29,7 @@ startBtn.addEventListener("click", (e)=>{
         //only allow playing if no win has been achieved
         allCircles[i].addEventListener("click", playerMoves);
     }
-})
+}
 
 
 //Resetting all circles
@@ -33,13 +37,18 @@ resetBtn.addEventListener("click", (e)=>{
     //Ask the user if he/she wants to really reset the game coz they may press it by mistake
     let answer = confirm("Are You Sure You Want to Reset the Game?");
     if(answer){
-        for(let i = 0; i < allCircles.length; i++){
-            allCircles[i].classList.remove("circle-yellow");
-            allCircles[i].classList.remove("circle-red");
-            gameStarted = false;
-        }
+      resetGame();
     }
 })
+
+//Resetting the Game
+function resetGame(){
+    for(let i = 0; i < allCircles.length; i++){
+        allCircles[i].classList.remove("circle-yellow");
+        allCircles[i].classList.remove("circle-red");
+        gameStarted = false;
+    }
+}
 
 
 //Screen for picking color
@@ -183,18 +192,30 @@ function checkForWinning(winnerClass){
 function announceWin(winCounts, winnerClass){
     //Win if 4 in a row or more
     if(winCounts >= 4 && winnerClass === "circle-yellow"){
-        alert("You Win!");
+        let response = confirm("You Win! Would You Like To Play Again?");
+        replayOrNot(response);
         //stop playing
         stopGame();
         //change turn to over
         turn = "over";
     }else if(winCounts >= 4 && winnerClass === "circle-red"){
-        alert("The Computer Wins");
+        let response = alert("The Computer Wins! Would You Like To Play Again?");
+        replayOrNot(response);
         //stop playing
         stopGame();
         //change turn to over
         turn = "over";
     }   
+}
+
+
+//Handling Replaying
+function replayOrNot(response){
+    if(response){
+        resetGame();
+    }else{
+        window.location.href = "../htmlFiles/levels.html";
+    }
 }
 
 
