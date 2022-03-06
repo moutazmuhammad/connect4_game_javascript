@@ -1,11 +1,12 @@
 *{
     padding:0;
     margin:0;
+    box-sizing: border-box;
 }
 
 body{
-       background-color: darkgray;
-
+    background-image: linear-gradient(90deg, #ad5389, #3c1053);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .box{
@@ -16,13 +17,17 @@ body{
 }
 
 .gameframe{
-    background-color: rgb(65, 6, 204);
+    background-color: rgb(56, 3, 99);
     border-radius: 15px;
     margin: auto;
     width: 450px;
     height: 400px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: black 1px 1px 5px;
+    padding: 0.6rem;
 }
 
 .circle{
@@ -40,18 +45,25 @@ body{
 }
 
 .button{
-    margin: 10px auto;
-    padding: 5px;
-    border-radius: 15px;
+    margin: 2rem 0.5rem;
+    padding: 0.5rem;
+    padding-inline: 2rem;
     border: none;
-    background-color:darkred;
-    color: white;
-    width: 150px;
-    height: 30px;
+    border-radius: 3rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(51, 3, 53);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 1s;
 }
 
 .button:hover{
-    background-color: darkgoldenrod;
+    background-color: darkorange;
+    color: white;
+}
+
+.button:active{
+    transform: scale(0.8);
 }
 
 .circle-red{
@@ -60,4 +72,21 @@ body{
 
 .circle-yellow{
     background-color: darkorange;
+}
+
+h1{
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+h3{
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.7rem;
+}
+
+#turn {
+    font-size: 1.3rem;
+    color: rgb(127, 155, 4);
+    font-weight: bold;
 }

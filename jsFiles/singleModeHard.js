@@ -20,6 +20,7 @@ gameFrame.addEventListener("click", (e)=>{
 startBtn.addEventListener("click", (e)=>{
     gameStarted = true;
     turn = "player";
+    printTurn("Player");
     //let player start playing
     for(let i = 0; i < 7 ; i++){
         //only allow playing if no win has been achieved
@@ -83,6 +84,7 @@ function playerMoves(e){
             //If no win, let the computer play its move
             setTimeout(() => {
                 computerMoves();
+                printTurn("Computer");
             }, 1000);        
         }  
 
@@ -123,6 +125,7 @@ function computerMoves(){
             checkForWinning("circle-red");
         }, 200);
         turn = "player";
+        printTurn("Player");
     }
 }
 
@@ -274,4 +277,11 @@ function stopGame(){
         //Remove event listeners in case of a win
         allCircles[i].removeEventListener("click", playerMoves);
     }
+}
+
+
+//Printing whose turn it is on the screen
+function printTurn(turn) {
+    let turnLabel = document.getElementById("turn");
+    turnLabel.innerText = turn+"'s Turn";
 }
