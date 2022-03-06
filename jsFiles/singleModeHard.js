@@ -177,7 +177,32 @@ function checkForWinning(winnerClass){
         }
     }
     
-  
+    //Diagonal
+    for(let i = allCircles.length -1; i >= 34; i--){
+        if(i < 39 && i > 34){
+            continue;
+        }
+        for(let j = i; j >= 0; j -= 8){
+            if(allCircles[j].classList.contains(winnerClass)){
+                winCounts += 1;
+            }else{
+                winCounts = 0;
+            }
+
+            //break loop if finds win
+            if(winCounts === 5){
+                break;
+            }
+
+        }
+        //break outer loop in case of a victory
+        if(winCounts === 5){
+            console.log(winnerClass + ": " + winCounts);
+            //Announce win and stop playing 
+            announceWin(winCounts, winnerClass);
+            break;
+        }
+    }
 }
 
 
