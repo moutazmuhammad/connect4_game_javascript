@@ -122,3 +122,86 @@ function computerMoves(){
 }
 
 
+//Checking for winning and losing 
+
+function checkForWinning(winnerClass){
+    //Horizontal
+    let winCounts = 0;
+    for(let i = allCircles.length - 1; i >= 0; i -= 7){
+        winCounts = 0;
+    for(let j = i; j > i - 7; j--){
+        if(allCircles[j].classList.contains(winnerClass)){
+            winCounts += 1;
+        }else{
+            winCounts = 0;
+        }
+
+        //break loop if finds win
+        if(winCounts === 4){
+            break;
+        }
+        
+    }
+    //break outer loop in case of a victory
+    if(winCounts === 4){
+        console.log(winnerClass + ": " + winCounts);
+        //Announce win and stop playing 
+        announceWin(winCounts, winnerClass);
+        break;
+    }
+}
+
+
+    //Vertical
+    for(let i = allCircles.length - 1; i >= 35; i--){
+        winCounts = 0;
+        for(let j = i; j >= 0; j -= 7){
+            if(allCircles[j].classList.contains(winnerClass)){
+                winCounts += 1;
+            }else{
+                winCounts = 0;
+            }
+
+            //break loop if finds win
+            if(winCounts === 4){
+                break;
+            }
+            
+        }
+        //break outer loop in case of a victory
+        if(winCounts === 4){
+            console.log(winnerClass + ": " + winCounts);
+            //Announce win and stop playing 
+            announceWin(winCounts, winnerClass);
+            break;
+        }
+    }  
+}
+
+
+//Announce winning function
+function announceWin(winCounts, winnerClass){
+    //Win if 4 in a row or more
+    if(winCounts >= 4 && winnerClass === "circle-yellow"){
+        alert("You Win!");
+        //stop playing
+        stopGame();
+        //change turn to over
+        turn = "over";
+    }else if(winCounts >= 4 && winnerClass === "circle-red"){
+        alert("The Computer Wins");
+        //stop playing
+        stopGame();
+        //change turn to over
+        turn = "over";
+    }   
+}
+
+
+//Stop Game in case of winning
+function stopGame(){
+    for(let i = 0; i < 7 ; i++){
+        //Remove event listeners in case of a win
+        allCircles[i].removeEventListener("click", playerMoves);
+    }
+}
