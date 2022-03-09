@@ -27,6 +27,7 @@ startBtn.addEventListener("click", (e)=>{
 function startGame(){
     gameStarted = true;
     turn = "player";
+    printTurn("Player");
     //let player start playing
     for(let i = 0; i < 7 ; i++){
         //only allow playing if no win has been achieved
@@ -79,6 +80,7 @@ function playerMoves(e){
             }
             allCircles[emptyPosition].classList.add("circle-yellow");
             allCircles[emptyPosition].removeEventListener("click", playerMoves)
+            printTurn("Computer");
             //Now we set the turn to be the computer's
             turn = "computer";
             //Check for winning
@@ -130,6 +132,7 @@ function computerMoves(){
             }
         }
         allCircles[empty].classList.add("circle-red");
+        printTurn("Player");
         //Set some time out so that the final move appears before the win window pops up
         setTimeout(() => {
             //if easy level
@@ -378,4 +381,8 @@ function stopGame(){
     }
 }
 
-console.log(level);
+//Printing whose turn it is on the screen
+function printTurn(turn) {
+    let turnLabel = document.getElementById("turn");
+    turnLabel.innerText = turn+"'s Turn";
+}
