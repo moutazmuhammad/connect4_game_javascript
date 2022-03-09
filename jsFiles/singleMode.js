@@ -22,6 +22,7 @@ gameFrame.addEventListener("click", (e)=>{
 //Starting Game
 startBtn.addEventListener("click", (e)=>{
     startGame();
+    document.getElementById("start-msg").classList.add("disappear");
 })
 
 //Starting Function
@@ -39,13 +40,13 @@ function startGame(){
 
 
 //Resetting all circles
-resetBtn.addEventListener("click", (e)=>{
-    //Ask the user if he/she wants to really reset the game coz they may press it by mistake
-    let answer = confirm("Are You Sure You Want to Reset the Game?");
-    if(answer){
-      resetGame();
-    }
-})
+// resetBtn.addEventListener("click", (e)=>{
+//     //Ask the user if he/she wants to really reset the game coz they may press it by mistake
+//     let answer = confirm("Are You Sure You Want to Reset the Game?");
+//     if(answer){
+//       resetGame();
+//     }
+// })
 
 //Resetting the Game
 function resetGame(){
