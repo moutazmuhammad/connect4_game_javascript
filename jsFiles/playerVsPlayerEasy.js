@@ -92,7 +92,7 @@ function checkPlayerTwoWin(){
             circles[circlesIndex[i][j+3]].classList.contains("playerTwo")
             ) {
                 check_draw = 0
-                playerOneScore++;
+                playerTwoScore++;
                 circles[circlesIndex[i][j]].classList.add("win")
                 circles[circlesIndex[i][j+1]].classList.add("win")
                 circles[circlesIndex[i][j+2]].classList.add("win")
@@ -112,7 +112,7 @@ function checkPlayerTwoWin(){
             circles[circlesIndex[j+3][i]].classList.contains("playerTwo")
             ) {
                 check_draw = 0
-                playerOneScore++;
+                playerTwoScore++;
                 circles[circlesIndex[j][i]].classList.add("win")
                 circles[circlesIndex[j+1][i]].classList.add("win")
                 circles[circlesIndex[j+2][i]].classList.add("win")
@@ -171,7 +171,6 @@ function startGameFunction() {
 
 function resetGameFunction() {
     startGame = 0
-    countOfPlayedCercles = 0
     check_draw = 0
     
     for(let i=0 ; i < 6 ; i++){
