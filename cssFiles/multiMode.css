@@ -77,7 +77,7 @@ h1, h3{
     margin: 5px;
 }
 
-.draw-msg, .win-msg{
+.draw-msg, .win-msg, .start-msg{
     position: fixed;
     top: 0;
     left: 0;
@@ -90,7 +90,7 @@ h1, h3{
     background-color: rgb(49, 49, 49,0.938);
 }
 
-.draw-msg, .win-msg{
+.draw-msg, .win-msg, .disappear{
     display: none;
 }
 
