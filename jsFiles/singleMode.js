@@ -7,6 +7,7 @@ let gameFrame = document.getElementsByClassName("gameframe")[0];
 let gameStarted = false;
 let turn = "player";
 let level = document.cookie.split(";")[0].split("=")[1];
+let win = false;
 console.log(level);
 
 
@@ -25,6 +26,7 @@ startBtn.addEventListener("click", (e)=>{
 
 //Starting Function
 function startGame(){
+    win = false;
     gameStarted = true;
     turn = "player";
     printTurn("Player");
@@ -86,10 +88,12 @@ function playerMoves(e){
             //Check for winning
             //Set some time out so that the final move appears before the win window pops up
             setTimeout(() => {
+                //check for draw anyways
+                checkDraw();
                 //If easy mode
-                if(level == "easy"){
+                if(level === "easy"){
                     checkForWinningEasy("circle-yellow");
-                }else if(level == "hard"){
+                }else if(level === "hard"){
                     checkForWinningHard("circle-yellow");
                 }
             }, 200);
@@ -135,6 +139,8 @@ function computerMoves(){
         printTurn("Player");
         //Set some time out so that the final move appears before the win window pops up
         setTimeout(() => {
+            //check for draw anyways
+            checkDraw();
             //if easy level
             if(level === "easy"){
                 checkForWinningEasy("circle-red");
@@ -221,7 +227,16 @@ function announceWinEasy(winCounts, winnerClass){
         stopGame();
         //change turn to over
         turn = "over";
-    }   
+        win = true;
+    }else{
+        let response = alert("Draw");
+        replayOrNot(response);
+        //stop playing
+        stopGame();
+        //change turn to over
+        turn = "over";
+        win = true;
+    }  
 }
 
 
@@ -280,8 +295,10 @@ function checkForWinningHard(winnerClass){
         }
     }
     
+    //bug with line 40
     //Diagonal From the right
     for(let i = allCircles.length -1; i >= 34; i--){
+        winCounts = 0;
         if(i < 39 && i > 34){
             continue;
         }
@@ -309,6 +326,7 @@ function checkForWinningHard(winnerClass){
 
     //Diagonal From the left
     for(let i = 37; i >= 28; i--){
+        winCounts = 0;
         if(i < 35 && i > 28){
             continue;
         }
@@ -346,6 +364,7 @@ function announceWinHard(winCounts, winnerClass){
         stopGame();
         //change turn to over
         turn = "over";
+        win = true;
     }else if(winCounts >= 5 && winnerClass === "circle-red"){
         let response = alert("The Computer Wins! Would You Like To Play Again?");
         replayOrNot(response);
@@ -353,12 +372,26 @@ function announceWinHard(winCounts, winnerClass){
         stopGame();
         //change turn to over
         turn = "over";
+        win = true;
     }   
 }
 
 
 
-
+function checkDraw(){
+    let countOfMoves = 0;
+    for(let i = 0; i < allCircles.length; i++){
+        if(allCircles[i].classList.contains("circle-red") || allCircles[i].classList.contains("circle-yellow")){
+            countOfMoves += 1;
+        }
+    }
+    if(countOfMoves === allCircles.length && win === false){
+        setTimeout(() => {
+         answer = confirm("It's a Draw! Would You Like to Replay?");
+         replayOrNot(answer);
+        }, 200); 
+    }
+}
 
 
 
