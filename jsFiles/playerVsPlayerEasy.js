@@ -5,6 +5,24 @@ let playerTwoScore = 0
 let usernameNum = 1
 let startGame = 0
 
+// var array1 = [15, 33, 21, 39, 24, 27, 19, 7, 18, 28, 30, 38];
+// var i, j, t;
+// var positionarray1 = 0;
+// var array2 = new Array(4);
+
+// for (t = 0; t < 4; t++) {
+//   array2[t] = new Array(3);
+// }
+
+// for (i = 0; i < 4; i++) {
+//   for (j = 0; j < 3; j++) {
+//     array2[i][j] = array1[i*3+j]; //here was the error
+//   }
+
+//   positionarray1 = positionarray1 + 1; //I do this to know which value we are taking
+// }
+
+// console.log(array2);
 
 function checkPlayerOneWin(){
     for (let pOne=0 ; pOne<4 ; pOne++){ // check circles in rows

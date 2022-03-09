@@ -5,10 +5,9 @@
 
 
 body{
-    background-color: #128560;
-    /* background: url(); */
-    /* background-repeat: no-repeat;
-    background-size: cover; */
+    background-image: url("..\\imgs\\cool-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1, h3{
@@ -23,7 +22,9 @@ h1, h3{
 }
 
 .gameframe{
-    background-color: #A61C3C;
+    background-color: rgb(56, 3, 99);
+    box-shadow: black 1px 1px 5px;
+    padding: 0.6rem;
     border-radius: 15px;
     margin: auto;
     width: 450px;
