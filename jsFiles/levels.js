@@ -19,10 +19,15 @@ hardBtn.addEventListener("mouseenter", (e)=>{
 
 easyBtn.addEventListener("click", (e)=>{
     audio(e, "btnClick.mp3");
+    //Sending User Choice of Level in cookie
+    document.cookie = "level="+e.target.getAttribute("id")+";visited=true;paths=/";
+
 })
 
 hardBtn.addEventListener("click", (e)=>{
     audio(e, "btnClick.mp3");
+    //Sending User Choice of Level in cookie
+    document.cookie = "level="+e.target.getAttribute("id")+";visited=true;paths=/";
 })
 
 
