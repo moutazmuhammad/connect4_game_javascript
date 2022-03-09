@@ -5,6 +5,9 @@ let playerTwoScore = 0
 let usernameNum = 1
 let startGame = 0
 
+let winEl = document.querySelector(".win-msg")
+let drawEl = document.querySelector(".draw-msg")
+
 // This part to get 2D array of circles indexs
 let positioncircles = 0; // This var to know which index value we are taking
 let circlesIndex = new Array(6);
@@ -34,9 +37,8 @@ function checkPlayerOneWin(){
                 circles[circlesIndex[i][j+1]].classList.add("win")
                 circles[circlesIndex[i][j+2]].classList.add("win")
                 circles[circlesIndex[i][j+3]].classList.add("win")
-                setTimeout(() => {
-                    alert("Payer One Win!!!")
-                }, 1000);  
+                
+                winEl.classList.add("show") 
             }
         }
     }
@@ -54,9 +56,8 @@ function checkPlayerOneWin(){
                 circles[circlesIndex[j+1][i]].classList.add("win")
                 circles[circlesIndex[j+2][i]].classList.add("win")
                 circles[circlesIndex[j+3][i]].classList.add("win")
-                setTimeout(() => {
-                    alert("Payer One Win!!!")
-                }, 1000); 
+
+                winEl.classList.add("show")
             }
         }
     }
@@ -77,9 +78,8 @@ function checkPlayerTwoWin(){
                 circles[circlesIndex[i][j+1]].classList.add("win")
                 circles[circlesIndex[i][j+2]].classList.add("win")
                 circles[circlesIndex[i][j+3]].classList.add("win")
-                setTimeout(() => {
-                    alert("Payer One Win!!!")
-                }, 1000); 
+
+                winEl.classList.add("show") 
             }
         }
     }
@@ -92,14 +92,14 @@ function checkPlayerTwoWin(){
             circles[circlesIndex[j+2][i]].classList.contains("playerTwo") &&
             circles[circlesIndex[j+3][i]].classList.contains("playerTwo")
             ) {
+
                 playerOneScore++;
                 circles[circlesIndex[j][i]].classList.add("win")
                 circles[circlesIndex[j+1][i]].classList.add("win")
                 circles[circlesIndex[j+2][i]].classList.add("win")
                 circles[circlesIndex[j+3][i]].classList.add("win")
-                setTimeout(() => {
-                    alert("Payer One Win!!!")
-                }, 1000); 
+
+                winEl.classList.add("show")
             }
         }
     }
@@ -162,7 +162,8 @@ function resetGameFunction() {
     for (let i=circles.length-7 ; i < circles.length ; i++ ){
         circles[i].classList.add("empty");
     }
-
-    usernameNum = 1
+    winEl.classList.remove("show");
+    drawEl.classList.remove("show");
+    usernameNum = 1;
     username.innerHTML= `Player 1 Turn`;
 }

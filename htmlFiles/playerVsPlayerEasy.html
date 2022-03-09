@@ -14,7 +14,6 @@
             <h3>Player VS Computer</h3>
             <h3 id="username">Payer 1 Turn</h3>
             
-            <br/>
             <div class="gameframe">
                 <div class="circle"></div>
                 <div class="circle"></div>
@@ -61,10 +60,31 @@
             </div>
             <div>
                 <button id="start-button" class="button" onclick="startGameFunction()"><b>Start</b></button>
-                <button id="reset-button" class="button" onclick="resetGameFunction()"><b>Reset</b></button>
             </div>
         </div>
     </div>
+    
+    <div class="draw-msg">
+        <div class="draw">
+            <h1 style="color:yellow; text-align:center;">Draw</h1>
+        </div>
+        <button id="reset-button" class="button" onclick="resetGameFunction()"><b>Play Again</b></button>
+    </div>
+
+    <!-- draw window -->
+    <div class="draw-msg">
+        <div class="draw">
+            <h1 style="color:yellow; text-align:center;">Draw</h1>
+        </div>
+        <button id="reset-button" class="button" onclick="resetGameFunction()"><b>Play Again</b></button>
+    </div>
+
+    <div class="win-msg">
+        <h1 style="color:yellow; text-align:center;">Winner</h1>
+        <div class="the-winner"></div>
+        <button id="reset-button" class="button" onclick="resetGameFunction()"><b>Play Again</b></button>
+    </div>
+
     <script src="../jsFiles/playerVsPlayerEasy.js"></script>
 </body>
 </html>
