@@ -1,6 +1,7 @@
 const circles = document.querySelectorAll(".circle")
 const username = document.querySelector("#username")
-let level = document.cookie.split(";")[0].split("=")[1];
+// let level = document.cookie.split(";")[0].split("=")[1];
+let level = 'easy'
 let playerOneScore = 0
 let playerTwoScore = 0
 let usernameNum = 1
@@ -347,4 +348,10 @@ function resetGameFunction() {
     drawEl.classList.remove("show");
     usernameNum = 1;
     username.innerHTML= `Player 1 Turn`;
+    startGameFunction();
+}
+
+//Home
+function goBackToHome(){
+    window.location.href = "../htmlFiles/levels.html";
 }
