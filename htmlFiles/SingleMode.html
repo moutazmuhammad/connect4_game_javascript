@@ -67,15 +67,21 @@
         <div class="draw">
             <h1 style="color:yellow; text-align:center;">Draw</h1>
         </div>
-        <button id="reset-button" class="button" onclick="resetGameFunction()"><b>Play Again</b></button>
+        <div class="buttons">
+            <button id="replay" class="button" onclick="replay()"><b>Replay</b></button>
+            <button id="home" class="button" onclick="goBackToHome()"><b>Home</b></button>
+        </div>
+        
     </div>
 
     <!-- win window -->
     <div class="win-msg">
-        <h1 style="color:yellow; text-align:center;">Winner</h1>
+        <h1 style="color:yellow; text-align:center; margin-bottom: 1rem;">Winner</h1>
         <div class="the-winner"></div>
-        <button id="reset-button" class="button" onclick="resetGame();"><b>Play Again</b></button>
-        <button id="home" class="button" onclick="resetGameFunction()"><b>Home</b></button>
+        <div class="buttons">
+            <button id="replay" class="button" onclick="replay();"><b>Replay</b></button>
+            <button id="home" class="button" onclick="goBackToHome()"><b>Home</b></button>
+        </div>
     </div>
 
     <!-- start window -->

@@ -54,6 +54,7 @@ function resetGame(){
         allCircles[i].classList.remove("circle-yellow");
         allCircles[i].classList.remove("circle-red");
         gameStarted = false;
+        printTurn("Player");
     }
 }
 
@@ -215,29 +216,15 @@ function checkForWinningEasy(winnerClass){
 function announceWinEasy(winCounts, winnerClass){
     //Win if 4 in a row or more
     if(winCounts >= 4 && winnerClass === "circle-yellow"){
-        let response = confirm("You Win! Would You Like To Play Again?");
-        replayOrNot(response);
-        //stop playing
-        stopGame();
+        displayWinner("You");
         //change turn to over
         turn = "over";
     }else if(winCounts >= 4 && winnerClass === "circle-red"){
-        let response = alert("The Computer Wins! Would You Like To Play Again?");
-        replayOrNot(response);
-        //stop playing
-        stopGame();
+        displayWinner("Computer");
         //change turn to over
         turn = "over";
         win = true;
-    }else{
-        let response = alert("Draw");
-        replayOrNot(response);
-        //stop playing
-        stopGame();
-        //change turn to over
-        turn = "over";
-        win = true;
-    }  
+    } 
 }
 
 
@@ -359,18 +346,12 @@ function checkForWinningHard(winnerClass){
 function announceWinHard(winCounts, winnerClass){
     //Win if 4 in a row or more
     if(winCounts >= 5 && winnerClass === "circle-yellow"){
-        let response = confirm("You Win! Would You Like To Play Again?");
-        replayOrNot(response);
-        //stop playing
-        stopGame();
+        displayWinner("You");
         //change turn to over
         turn = "over";
         win = true;
     }else if(winCounts >= 5 && winnerClass === "circle-red"){
-        let response = alert("The Computer Wins! Would You Like To Play Again?");
-        replayOrNot(response);
-        //stop playing
-        stopGame();
+        displayWinner("Computer");
         //change turn to over
         turn = "over";
         win = true;
@@ -388,22 +369,33 @@ function checkDraw(){
     }
     if(countOfMoves === allCircles.length && win === false){
         setTimeout(() => {
-         answer = confirm("It's a Draw! Would You Like to Replay?");
-         replayOrNot(answer);
+            document.getElementsByClassName("draw-msg")[0].classList.add("draw-msg-show");
         }, 200); 
     }
 }
 
 
+//Display Winner
+function displayWinner(winnerName = ""){
+    document.getElementsByClassName("win-msg")[0].classList.add("win-msg-show");
+    document.getElementsByClassName("the-winner")[0].innerText = `${winnerName.toUpperCase()} Won!`;
+}
 
+//Home
+function goBackToHome(){
+    window.location.href = "../htmlFiles/levels.html";
+    document.getElementsByClassName("draw-msg")[0].classList.remove("draw-msg-show");
+    document.getElementsByClassName("win-msg")[0].classList.remove("win-msg-show");
+    document.getElementsByClassName("the-winner")[0].innerText = "";
+}
 
-//Handling Replaying
-function replayOrNot(response){
-    if(response){
-        resetGame();
-    }else{
-        window.location.href = "../htmlFiles/levels.html";
-    }
+//Replay
+function replay(){
+    resetGame();
+    startGame();
+    document.getElementsByClassName("draw-msg")[0].classList.remove("draw-msg-show");
+    document.getElementsByClassName("win-msg")[0].classList.remove("win-msg-show");
+    document.getElementsByClassName("the-winner")[0].innerText = "";
 }
 
 
