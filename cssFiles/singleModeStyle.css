@@ -120,12 +120,13 @@ h3{
     cursor: pointer;
     margin: 10px auto;
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 30px;
     border: none;
+    font-size: 200%;
     background-color:darkred;
     color: white;
-     width: 6rem;
-
+    width: 10rem;
+    height: 3rem;
 }
 
 .button:hover{
