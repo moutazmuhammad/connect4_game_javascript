@@ -1,40 +1,42 @@
 *{
     padding:0;
     margin:0;
-    box-sizing: border-box;
 }
+
 
 body{
     background-image: url("..\\imgs\\cool-background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100rem;
-    /* background-image: linear-gradient(90deg, #ad5389, #3c1053); */
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+h1, h3{
+    color: rgb(255, 255, 255);
 }
 
 .box{
     margin: auto;
-    width: 100vw;
+    width: 95vw;
     height: 100vh;
     text-align: center;
 }
 
 .gameframe{
     background-color: rgb(56, 3, 99);
+    box-shadow: black 1px 1px 5px;
+    padding: 0.6rem;
     border-radius: 15px;
-    margin: auto;
+    margin: 10px auto;
     width: 450px;
     height: 400px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    box-shadow: black 1px 1px 5px;
-    padding: 0.6rem;
 }
 
-.circle{
+.circle, .empty{
     border: 2px solid lightgrey;
     background-color: lightgrey;
     border-radius: 50px;
@@ -43,56 +45,36 @@ body{
     margin: 5px;
 }
 
-.mainCircle:hover{
+.empty:hover{
+    cursor: pointer;
     background-color: rgb(185, 178, 178);
-    cursor: pointer;
 }
 
-.button{
-    margin: 2rem 0.5rem;
-    padding: 0.5rem;
-    padding-inline: 2rem;
-    border: none;
-    border-radius: 3rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: rgb(51, 3, 53);
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 1s;
+.playerOne{
+    border: 2px solid rgb(56, 34, 0);
+    background-color: #F4AC45;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
 }
 
-.button:hover{
-    background-color: darkorange;
-    color: white;
+.playerTwo{
+    border: 2px solid rgb(92, 0, 0);
+    background-color: #ca0000;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
 }
 
-.button:active{
-    transform: scale(0.8);
-}
-
-.circle-red{
-    background-color: darkred;
-}
-
-.circle-yellow{
-    background-color: darkorange;
-}
-
-h1{
-    font-size: 4rem;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-h3{
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 0.7rem;
-}
-
-#turn {
-    font-size: 1.3rem;
-    color: rgb(105, 2, 2);
-    font-weight: bold;
+.win{
+    border: 2px solid rgb(37, 85, 15);
+    background-color: #45f445;
+    border-radius: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
 }
 
 .draw-msg, .win-msg, .start-msg{
@@ -124,8 +106,8 @@ h3{
     border: none;
     background-color:darkred;
     color: white;
-     width: 6rem;
-
+    width: 150px;
+    height: 30px;
 }
 
 .button:hover{
