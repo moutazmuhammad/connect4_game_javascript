@@ -10,25 +10,18 @@
 
 </head>
 <body>
-    <div class="main">
-
-        <form>
-            
-            <div>
+    <div id="main">    
 
                 <label for="name2">Player Name</label>
-                <input type="text" class="form-control is-invalid" id="name2">
+                <input type="text" class="form-control is-invalid" id="name2" style="width: 20rem; border-radius: 1rem; margin-top: 1rem;">
                 
-                <label for="level">Level</label> <br/>
-                <select class="form-select" id="level" name="leve">
-                    <option value="1">Easy</option>
+                <label for="level">Level</label>
+                <select class="form-select" id="level" name="level" style="width: 20rem; border-radius: 1rem; margin-top: 1rem;">
+                    <option value="1" style="border-radius: 1rem;">Easy</option>
                     <option value="2">Hard</option>
                 </select>
-
-            </div>
-            <input type="submit" value="Login" id="login">
-        </form>
+             <input type="submit" value="Login" id="login">
     </div>   
-
+<script src="../jsFiles/singlePlayerInfo.js"></script>
 </body>
 </html>
