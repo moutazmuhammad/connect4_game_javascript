@@ -9,6 +9,7 @@ function goToGameRoom(e){
         let selectedLevel = list.getElementsByTagName('option')[list.selectedIndex].innerText
         // Save data to sessionStorage
         sessionStorage.setItem('level', selectedLevel);
+        sessionStorage.setItem("username", playerName.value)
         window.location.href = "../htmlFiles/singleMode.html"
          
      }else{

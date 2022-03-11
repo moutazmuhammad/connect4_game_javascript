@@ -7,17 +7,13 @@ let gameFrame = document.getElementsByClassName("gameframe")[0];
 let gameStarted = false;
 let turn = "player";
 let level = sessionStorage.getItem("level");
+let playerName = sessionStorage.getItem("username")
 let win = false;
 console.log(level);
 
 
-//Can't Play without Starting
-gameFrame.addEventListener("click", (e)=>{
-    if(!gameStarted){
-        alert("Please Start the Game First!");
-    }
-})
-
+//Display Player'username at start
+document.getElementById("welcome").innerText += ` ${playerName}`;
 
 //Starting Game
 startBtn.addEventListener("click", (e)=>{
@@ -39,14 +35,6 @@ function startGame(){
 }
 
 
-//Resetting all circles
-// resetBtn.addEventListener("click", (e)=>{
-//     //Ask the user if he/she wants to really reset the game coz they may press it by mistake
-//     let answer = confirm("Are You Sure You Want to Reset the Game?");
-//     if(answer){
-//       resetGame();
-//     }
-// })
 
 //Resetting the Game
 function resetGame(){
@@ -57,10 +45,6 @@ function resetGame(){
         printTurn("Player");
     }
 }
-
-
-//Screen for picking color
-
 
 //Player Moves
 function playerMoves(e){
@@ -383,7 +367,7 @@ function displayWinner(winnerName = ""){
 
 //Home
 function goBackToHome(){
-    window.location.href = "../htmlFiles/single_player_info.html";
+    window.location.href = "../htmlFiles/index.html";
     document.getElementsByClassName("draw-msg")[0].classList.remove("draw-msg-show");
     document.getElementsByClassName("win-msg")[0].classList.remove("win-msg-show");
     document.getElementsByClassName("the-winner")[0].innerText = "";
