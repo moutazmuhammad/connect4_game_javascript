@@ -31,3 +31,7 @@ function isUsernameValid(name){
         return false;
     }
 }
+
+function back(){
+    window.location.href = '../htmlFiles/index.html'
+}

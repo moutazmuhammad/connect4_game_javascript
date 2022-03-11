@@ -1,10 +1,16 @@
 const circles = document.querySelectorAll(".circle")
 const username = document.querySelector("#username")
-// let level = document.cookie.split(";")[0].split("=")[1];
-let level = 'easy'
+
+let level = sessionStorage.getItem("level");
+let playerName1 = sessionStorage.getItem("username1")
+let playerName2 = sessionStorage.getItem("username2")
+
 let playerOneScore = 0
 let playerTwoScore = 0
 let usernameNum = 1
+
+username.innerHTML= `${playerName1} Turn (${playerOneScore})`
+
 let startGame = 0
 
 let check_draw = 1; //flage to check if player won
@@ -293,7 +299,7 @@ for (let i=0 ; i<circles.length ; i++){
                 circles[i].classList.add("playerOne");
                 circles[i].classList.remove("empty")
                 usernameNum = 2;
-                username.innerHTML= `Player ${usernameNum} Turn`;
+                username.innerHTML= `${playerName2} Turn (${playerTwoScore})`;
                 if(i>6){
                     circles[i-7].classList.remove("circle");
                     circles[i-7].classList.add("empty");
@@ -304,7 +310,7 @@ for (let i=0 ; i<circles.length ; i++){
                 circles[i].classList.add("playerTwo");
                 circles[i].classList.remove("empty");
                 usernameNum = 1;
-                username.innerHTML= `Player ${usernameNum} Turn`;
+                username.innerHTML= `${playerName1} Turn (${playerOneScore})`;
                 if(i>6){
                     circles[i-7].classList.remove("circle");
                     circles[i-7].classList.add("empty");
@@ -312,10 +318,10 @@ for (let i=0 ; i<circles.length ; i++){
             }
         }
 
-        if(level == "easy"){
+        if(level == "Easy"){
             checkPlayerOneWinEasy();
             checkPlayerTwoWinEasy();
-        }else if(level == "hard"){
+        }else if(level == "Hard"){
             checkPlayerOneWinHard();
             checkPlayerTwoWinHard();
         }
@@ -347,11 +353,11 @@ function resetGameFunction() {
     winEl.classList.remove("show");
     drawEl.classList.remove("show");
     usernameNum = 1;
-    username.innerHTML= `Player 1 Turn`;
+    username.innerHTML= `${playerName1} Turn (${playerOneScore})`;
     startGameFunction();
 }
 
 //Home
 function goBackToHome(){
-    window.location.href = "../htmlFiles/levels.html";
+    window.location.href = "../htmlFiles/index.html";
 }
