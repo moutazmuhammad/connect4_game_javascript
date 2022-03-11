@@ -6,7 +6,7 @@ let resetBtn = document.getElementById("reset-button");
 let gameFrame = document.getElementsByClassName("gameframe")[0];
 let gameStarted = false;
 let turn = "player";
-let level = document.cookie.split(";")[0].split("=")[1];
+let level = sessionStorage.getItem("level");
 let win = false;
 console.log(level);
 
@@ -93,9 +93,9 @@ function playerMoves(e){
                 //check for draw anyways
                 checkDraw();
                 //If easy mode
-                if(level === "easy"){
+                if(level === "Easy"){
                     checkForWinningEasy("circle-yellow");
-                }else if(level === "hard"){
+                }else if(level === "Hard"){
                     checkForWinningHard("circle-yellow");
                 }
             }, 200);
@@ -144,9 +144,9 @@ function computerMoves(){
             //check for draw anyways
             checkDraw();
             //if easy level
-            if(level === "easy"){
+            if(level === "Easy"){
                 checkForWinningEasy("circle-red");
-            }else if(level === "hard"){
+            }else if(level === "Hard"){
                 checkForWinningHard("circle-red");
             }
         }, 200);
@@ -383,7 +383,7 @@ function displayWinner(winnerName = ""){
 
 //Home
 function goBackToHome(){
-    window.location.href = "../htmlFiles/levels.html";
+    window.location.href = "../htmlFiles/single_player_info.html";
     document.getElementsByClassName("draw-msg")[0].classList.remove("draw-msg-show");
     document.getElementsByClassName("win-msg")[0].classList.remove("win-msg-show");
     document.getElementsByClassName("the-winner")[0].innerText = "";

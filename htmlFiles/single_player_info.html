@@ -13,14 +13,16 @@
     <div id="main">    
 
                 <label for="name2">Player Name</label>
-                <input type="text" class="form-control is-invalid" id="name2" style="width: 20rem; border-radius: 1rem; margin-top: 1rem;">
+                
+                <input type="text" class="form-control is-invalid" id="name" style="width: 20rem; border-radius: 1rem;margin-top: 1rem; margin-bottom: 0.1rem;">
+                <span id="invalid" style="color:red;  font-size: 0.9rem;"></span>
                 
                 <label for="level">Level</label>
                 <select class="form-select" id="level" name="level" style="width: 20rem; border-radius: 1rem; margin-top: 1rem;">
                     <option value="1" style="border-radius: 1rem;">Easy</option>
                     <option value="2">Hard</option>
                 </select>
-             <input type="submit" value="Login" id="login">
+             <input type="submit" value="Login" id="login" onclick="goToGameRoom(event);">
     </div>   
 <script src="../jsFiles/singlePlayerInfo.js"></script>
 </body>
