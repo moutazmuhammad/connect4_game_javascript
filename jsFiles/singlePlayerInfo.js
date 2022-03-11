@@ -3,7 +3,6 @@ let list = document.getElementById("level");
 
 function goToGameRoom(e){
     let pattern = new RegExp("^[a-zA-Z]+[0-9_]*$", "g")
-    // let pattern = /[a-zA-Z]+/g;
      if(pattern.test(playerName.value)){
         //Select Level
         let selectedLevel = list.getElementsByTagName('option')[list.selectedIndex].innerText
