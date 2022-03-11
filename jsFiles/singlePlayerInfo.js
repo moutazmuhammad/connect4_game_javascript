@@ -21,12 +21,6 @@ function goToGameRoom(e){
 }
 
 
-
-function saveLevelSession(){
-
-}
-
-
-function saveDataLocalStorage(){
-
+function back(){
+    window.location.href = '../htmlFiles/index.html'
 }

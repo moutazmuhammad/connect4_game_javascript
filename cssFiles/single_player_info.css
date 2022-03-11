@@ -63,3 +63,22 @@ input, select{
     cursor: pointer;
     transform: scale(1.2);
 }
+
+#back{
+    background-color: rgb(4, 49, 107);
+    color: white;
+    position: absolute;
+    border: none;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 0.9rem;
+    padding: 0.2rem 2rem;
+    font-size: 1.2rem;
+    transition: all 1.5s;
+}
+
+#back:hover{
+   background-color: darkorange;
+   color: black;
+    transform: scale(1.2);
+}
